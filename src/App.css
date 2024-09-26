@@ -1,38 +1,246 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Base button styling */
+button {
+  padding: 17px 40px; /* Base padding */
+  border-radius: 50px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  border: 0; /* No border */
+  background-color: white; /* Default background color */
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px; /* Light shadow */
+  letter-spacing: 1.5px; /* Letter spacing */
+  text-transform: uppercase; /* Uppercase text */
+  font-size: 12px; /* Font size */
+  transition: all 0.5s ease; /* Transition effect */
+  margin-top: 10px;
+  z-index: auto;
+}
+
+/* Button hover state */
+button:hover {
+  letter-spacing: 1px; /* Increase letter spacing on hover */
+  background-color: rgb(184, 23, 205); /* Hover background color */
+  color: hsl(0, 0%, 100%); /* Hover text color */
+  box-shadow: rgb(184, 23, 205) 0px 7px 29px 0px; /* Shadow on hover */
+}
+
+/* Button active state */
+button:active {
+  background-color: rgb(184, 23, 205); /* Background on active */
+  color: hsl(0, 0%, 100%); /* Text color on active */
+  box-shadow: none; /* Remove shadow */
+  transform: translateY(10px); /* Move down on active */
+  transition: 100ms; /* Short transition */
+}
+
+/* General body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font family */
+  background-image: url('./Cober.jpeg'); /* Background image */
+  background-size: cover; /* Cover background */
+  background-position: center; /* Center background */
+  background-repeat: no-repeat; /* No repeat */
+  margin: 0; /* No margin */
+  padding: 0; /* No padding */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  color: #fff; /* Text color */
+  position: relative; /* Relative positioning */
+}
+
+/* Overlay for darkening background */
+body::before {
+  content: ''; /* Empty content for overlay */
+  position: absolute; /* Absolute positioning */
+  top: 0; /* Top of the page */
+  left: 0; /* Left of the page */
+  right: 0; /* Right of the page */
+  bottom: 0; /* Bottom of the page */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 0; /* Behind other content */
+}
+
+/* Main card container styling */
 .App {
-  text-align: center;
+  position: relative; /* Relative for stacking context */
+  background: rgba(255, 255, 255, 0.097); /* Background with transparency */
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 30px; /* Padding */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  max-width: 800px; /* Set maximum width */
+  width: 100%; /* Full width */
+  text-align: center; /* Center text */
+  z-index: 1; /* Above overlay */
+  margin: 0; /* Remove margin to center with flexbox */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+/* Text styling */
+h1, h3, h4, p {
+  color: white; /* Text color */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h1 {
+  font-size: 1.8rem; /* Font size */
+  margin-bottom: 20px; /* Bottom margin */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 2px; /* Letter spacing */
+}
+
+/* File input styling */
+input[type="file"] {
+  display: block; /* Block display */
+  margin: 20px auto; /* Centered margin */
+  font-size: 1rem; /* Font size */
+  color: #333; /* Text color */
+}
+
+/* Audio element styling */
+audio {
+  margin-top: 20px; /* Top margin */
+  min-width: 200px;
+  width: 100%; /* Full width */
+}
+
+/* Link button styling */
+
+
+/* Remove underline from links */
+
+
+/* Space between buttons */
+button + button {
+  margin-left: 10px; /* Space between buttons */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+  .App {
+    padding: 20px; /* Reduced padding */
+    max-width: 90%; /* Maximum width adjustment */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Smaller font size */
+  }
+
+  input[type="file"], button, a button {
+    font-size: 0.9rem; /* Smaller font size */
+    padding: 10px 16px; /* Reduced padding */
+  }
+
+  h3, h4 {
+    font-size: 1rem; /* Smaller font size */
+  }
+
+  p {
+    font-size: 0.9rem; /* Smaller font size */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Circular input div styling */
+.input-div {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  margin: 20px 0; /* Add vertical margin */
+}
+
+
+/* Icon inside input */
+.icon {
+  color: rgb(184, 23, 205);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Invisible file input */
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer !important;
+}
+
+/* Flicker animation for the border and shadow */
+@keyframes flicker {
+  0% {
+    border: 2px solid rgb(184, 23, 205);
+    box-shadow: 0px 0px 100px rgb(184, 23, 205), inset 0px 0px 10px rgb(184, 23, 205), 0px 0px 5px rgb(255, 255, 255);
+  }
+  5% {
+    border: none;
+    box-shadow: none;
+  }
+  10% {
+    border: 2px solid rgb(184, 23, 205);
+    box-shadow: 0px 0px 100px rgb(184, 23, 205), inset 0px 0px 10px rgb(184, 23, 205), 0px 0px 5px rgb(255, 255, 255);
+  }
+  25% {
+    border: none;
+    box-shadow: none;
+  }
+  30% {
+    border: 2px solid rgb(184, 23, 205);
+    box-shadow: 0px 0px 100px rgb(184, 23, 205), inset 0px 0px 10px rgb(184, 23, 205), 0px 0px 5px rgb(255, 255, 255);
+  }
+  100% {
+    border: 2px solid rgb(184, 23, 205);
+    box-shadow: 0px 0px 100px rgb(184, 23, 205), inset 0px 0px 10px rgb(184, 23, 205), 0px 0px 5px rgb(255, 255, 255);
+  }
+}
+
+/* Flicker animation for icon */
+@keyframes iconflicker {
+  0% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 0.2;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+button-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px; /* Add margin if needed */
+}
+.btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  margin-left: -100px;
+  display: block; /* Change display to block */
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
